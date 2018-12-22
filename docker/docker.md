@@ -78,11 +78,12 @@
 * docker 删除一周前的日志
   > docker exec -d sleeper \
   > find / -ctime 7 -name '*log' -exec rm {} \; #删除最近7天没有做过更改并且以log结尾的文件
-
-> docker history mysecret # 查看容器的创建的历史
+  > docker history mysecret # 查看容器的创建的历史
 * docker 导出容器 并导入 进行脱密处理
-> docker export 28cde380f | docker import - mysecret
+  > docker export 28cde380f | docker import - mysecret
+
 * 需要保留`docker`要使用`load` 不应该使用`import`
+
 * docker 限制使用资源cpu
   > docker run --cpuset-cpus=0 -c 10000 ubuntu:14.04 \
   > sh -c 'cat /dev/zero > /dev/null' & 
